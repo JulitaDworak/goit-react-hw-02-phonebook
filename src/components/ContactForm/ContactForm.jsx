@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 
 export function ContactForm({contacts, onAddContact }) {
@@ -47,3 +48,7 @@ export function ContactForm({contacts, onAddContact }) {
 }
 
 export default ContactForm;
+
+ContactForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
