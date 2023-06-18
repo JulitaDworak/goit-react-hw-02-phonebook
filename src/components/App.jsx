@@ -27,13 +27,20 @@ function App() {
     contact.name.toLowerCase().includes(filter)
   );
 
+  const handleDeleteContact = (id) => {
+    const updatedContacts = contacts.filter((contact) => contact.id !== id);
+    setContacts(updatedContacts);
+  };
+
+
   return (
     <div className={styles.container}>
       <h1 className={styles.title}>Phonebook</h1>
       <ContactForm contacts={contacts} onAddContact={handleAddContact} />
       <h2 className={styles.subtitle}>Contacts</h2>
       <Filter value={filter} onChange={handleFilterChange} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList contacts={filteredContacts} onDeleteContact={handleDeleteContact} />
+
     </div>
   );
 }
